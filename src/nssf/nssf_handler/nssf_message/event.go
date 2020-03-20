@@ -9,4 +9,5 @@ const (
 	NSSAIAvailabilityDelete
 	NSSAIAvailabilityPost
 	NSSAIAvailabilityUnsubscribe
+	ManagementPost
 )

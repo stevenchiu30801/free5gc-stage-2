@@ -17,6 +17,7 @@ import (
 	"gofree5gc/lib/http2_util"
 	"gofree5gc/lib/path_util"
 	"gofree5gc/src/app"
+	"gofree5gc/src/nssf/Management"
 	"gofree5gc/src/nssf/NSSAIAvailability"
 	"gofree5gc/src/nssf/NSSelection"
 	"gofree5gc/src/nssf/factory"
@@ -105,6 +106,7 @@ func (nssf *NSSF) Start() {
 
 	router := gin.Default()
 
+	Management.AddService(router)
 	NSSAIAvailability.AddService(router)
 	NSSelection.AddService(router)
 

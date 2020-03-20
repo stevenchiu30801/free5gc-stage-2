@@ -52,6 +52,9 @@ func Handle() {
 			case nssf_message.NSSAIAvailabilityUnsubscribe:
 				subscriptionId := msg.HttpRequest.Params["subscriptionId"]
 				nssf_producer.NSSAIAvailabilityUnsubscribe(msg.ResponseChan, subscriptionId)
+			case nssf_message.ManagementPost:
+				networkSliceManagementDocument := msg.HttpRequest.Body.(plugin.NetworkSliceManagementDocument)
+				nssf_producer.ManagementPost(msg.ResponseChan, networkSliceManagementDocument)
 			default:
 				HandlerLog.Warnf("Event[%d] has not implemented", int(msg.Event))
 			}

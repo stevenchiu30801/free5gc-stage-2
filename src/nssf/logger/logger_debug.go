@@ -19,6 +19,7 @@ var ContextLog *logrus.Entry
 var FactoryLog *logrus.Entry
 var HandlerLog *logrus.Entry
 var InitLog *logrus.Entry
+var Management *logrus.Entry
 var Nsselection *logrus.Entry
 var Nssaiavailability *logrus.Entry
 var Util *logrus.Entry
@@ -58,6 +59,7 @@ func init() {
 	FactoryLog = log.WithFields(logrus.Fields{"NSSF": "factory"})
 	HandlerLog = log.WithFields(logrus.Fields{"NSSF": "handler"})
 	InitLog = log.WithFields(logrus.Fields{"NSSF": "init"})
+	Management = log.WithFields(logrus.Fields{"NSSF": "management"})
 	Nsselection = log.WithFields(logrus.Fields{"NSSF": "nsselection"})
 	Nssaiavailability = log.WithFields(logrus.Fields{"NSSF": "nssaiavailability"})
 	Util = log.WithFields(logrus.Fields{"NSSF": "util"})

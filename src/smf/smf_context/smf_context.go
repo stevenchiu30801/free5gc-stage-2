@@ -47,6 +47,8 @@ type SMFContext struct {
 	NFDiscoveryClient  *Nnrf_NFDiscovery.APIClient
 
 	UserPlaneInformation UserPlaneInformation
+
+	SnssaiList []models.Snssai
 }
 
 func AllocUEIP() net.IP {
@@ -99,6 +101,10 @@ func InitSmfContext(config *factory.Config) {
 
 		smfContext.CPNodeID.NodeIdType = 0
 		smfContext.CPNodeID.NodeIdValue = addr.IP.To4()
+	}
+
+	if len(configuration.SnssaiList) != 0 {
+		smfContext.SnssaiList = configuration.SnssaiList
 	}
 
 	_, ipNet, err := net.ParseCIDR(configuration.UESubnet)

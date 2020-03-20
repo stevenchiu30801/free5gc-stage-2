@@ -25,10 +25,13 @@ func SendNFRegistration() error {
 		Ipv4Addresses: []string{smf_context.SMF_Self().HTTPAddress},
 		NfServices:    smf_context.NFServices,
 		SmfInfo:       smf_context.SmfInfo,
+		SNssais:       &smf_context.SMF_Self().SnssaiList,
 	}
 	var rep models.NfProfile
 	var res *http.Response
 	var err error
+
+    logger.AppLog.Infof("%v", *profile.SNssais)
 
 	// Check data (Use RESTful PUT)
 	for {

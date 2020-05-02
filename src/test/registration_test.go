@@ -171,7 +171,7 @@ func TestRegistration(t *testing.T) {
 	// RAN connect to AMF
 	//// HELM: Remove spaces in substitution to avoid unclosed action error
 	//// It seems to only occur when multiple substitution in one line
-	conn, err := connectToAmf(test.TestConfig.AmfAddr, test.TestConfig.IpAddr, 38412, 9487)
+	conn, err := connectToAmf(test.TestConfig.AmfAddr, test.TestConfig.IpAddr, 38412, 9487+ueIdx)
 	assert.Nil(t, err)
 
 	// send NGSetupRequest Msg
